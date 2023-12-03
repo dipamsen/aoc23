@@ -32,8 +32,9 @@ if lastday > 0:
                 "Example": e1,
                 "Final": inp
         }).items():
-            ans = mod.part_one(file)
-            print(f"\t{name}: {ans}")
+            if file is not None:
+                ans = mod.part_one(file)
+                print(f"\t{name}: {ans}")
         print()
 
     if "part_two" in dir(mod) and (inp or e2
@@ -43,7 +44,8 @@ if lastday > 0:
                 "Example": e2 or e1,
                 "Final": inp
         }).items():
-            file.seek(0)
-            ans = mod.part_two(file)
-            print(f"\t{name}: {ans}")
+            if file is not None:
+                file.seek(0)
+                ans = mod.part_two(file)
+                print(f"\t{name}: {ans}")
         print()
