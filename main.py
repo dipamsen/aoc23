@@ -32,6 +32,8 @@ if lastday > 0:
                 "Example": e1,
                 "Final": inp
         }).items():
+            if name == "Final" and "HALT" in dir(mod) and mod.HALT:
+                continue
             if file is not None:
                 ans = mod.part_one(file)
                 print(f"\t{name}: {ans}")
@@ -45,6 +47,8 @@ if lastday > 0:
                 "Final": inp
         }).items():
             if file is not None:
+                if name == "Final" and "HALT" in dir(mod) and mod.HALT:
+                    continue
                 file.seek(0)
                 ans = mod.part_two(file)
                 print(f"\t{name}: {ans}")
